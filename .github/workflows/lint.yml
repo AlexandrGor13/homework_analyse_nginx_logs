@@ -4,7 +4,9 @@ on: [push]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
     - name: Install Python
@@ -18,4 +20,3 @@ jobs:
     - name: Run Ruff
       run: |
         ruff check --output-format=github .
-
