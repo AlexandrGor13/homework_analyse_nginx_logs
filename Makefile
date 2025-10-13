@@ -1,0 +1,36 @@
+.ONESHELL:
+
+.PHONY: help
+help: ## Вывод справки
+	@egrep '^[\.a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+
+.PHONY: setup
+setup: ## Установка проекта и pre-commit
+	mkdir -p reports log
+	@poetry install
+	@poetry run pre-commit autoupdate
+	@poetry run pre-commit install
+
+.PHONY: up
+up: ## Запуск контейнера
+	@docker compose up -d --no-deps --build
+
+.PHONY: down
+down: ## Остановка контейнера
+	@docker compose down
+
+.PHONY: bash
+bash: ## Перейти в контейнер
+	@docker compose exec app /bin/bash
+
+.PHONY: pre-commit
+pre-commit: ## Запуск pre-commit для всех файлов
+	@pre-commit run --all-files --verbose || true
+
+.PHONY: ps
+ps: ## Просмотр информации о контейнере
+	@docker compose ps
+
+.PHONY: analyse
+analyse: ## Запуск скрипта
+	@docker compose exec app poetry run python log_analyzer.py $(ARGS)

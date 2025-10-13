@@ -1,0 +1,14 @@
+.venv
+.ruff_cache
+.github
+.idea
+.git
+.mypy_cache
+.gitignore
+.pytest_cache
+.pre-commit-config.yaml
+docker-compose.yml
+Dockerfile
+Makefile
+tests.py
+__pycache__

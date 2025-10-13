@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./reports:/app/reports/
+      - ./log:/app/log/
+      - ./custom_config.py:/app/custom_config.py
