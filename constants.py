@@ -23,7 +23,7 @@ LOG_PATTERN = re.compile(
 )
 
 CONFIG = {
-    "REPORT_SIZE": 5,
+    "REPORT_SIZE": 25,
     "REPORT_DIR": "./reports/",
     "LOG_DIR": "./log/",
     "LOG_FILE_PATH": "./log/",
