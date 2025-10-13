@@ -43,11 +43,11 @@ make up
 ### Запуск скрипта
 Запуск скрипта со стандартным конфигом в файле constants.py
 ```
-make analyze
+make analyzer
 ```
 Запуск скрипт с кастомным конфигом
 ```
-make analyze ARGS="--config custom_config.py"
+make analyzer ARGS="--config custom_config.py"
 ```
 
 ### Остальные команды
