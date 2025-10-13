@@ -31,6 +31,6 @@ pre-commit: ## Запуск pre-commit для всех файлов
 ps: ## Просмотр информации о контейнере
 	@docker compose ps
 
-.PHONY: analyse
-analyse: ## Запуск скрипта
+.PHONY: analyze
+analyze: ## Запуск скрипта
 	@docker compose exec app poetry run python log_analyzer.py $(ARGS)
